@@ -1,0 +1,11 @@
+<% if current_admin %>
+	<%= simple_form_for @item do |f|%>
+		<%= f.input :name%>
+		<%= f.input :price%>
+		<%= f.input :description%>
+		<%= f.file_field :image%>
+		<%= f.submit 'Add Item', class: 'btn btn-default btn-block'%>
+	<% end %>
+<% else %>
+	<h1> Opps, You are lost! </h1>
+<% end %>
