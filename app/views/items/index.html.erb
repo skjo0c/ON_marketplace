@@ -2,15 +2,21 @@
 	<h1> This is admin </h1>
 <% else %>
 	<% @items.each do |item| %>
-		<%= image_tag item.image%>
 		<h1> <%= item.name %> </h1>
 		<h4> <%= item.price %> </h4>
 		<h4> <%= item.description %> </h4>
+		
+		<%= form_tag order_items_path do %>
+			<%= hidden_field_tag :item_id, item.id %>
+			<%= hidden_field_tag :quantity, 1, id: :"init_quantity"%>
+			<%= submit_tag "Add to Cart"%>
+		<% end %>
 	<% end %>
 <% end %>
 
 <% if user_signed_in? || admin_signed_in? %>
 	<div>
 	 <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+	 <%= link_to 'My Cart', cart_path %>
 	</div>  
 <% end %>

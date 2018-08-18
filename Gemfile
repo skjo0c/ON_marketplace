@@ -11,6 +11,9 @@ gem 'devise'
 gem 'rails', '~> 5.1.4'
 #gem for form
 gem 'simple_form'
+#installing bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
 #gem for photo upload
 gem 'carrierwave'
 # Use postgres as the database for Active Record

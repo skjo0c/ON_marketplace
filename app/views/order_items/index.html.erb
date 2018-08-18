@@ -1,0 +1,16 @@
+<%= link_to 'Home', root_path %>
+
+<% @items.each do |item| %>
+	<div class = "item_id"><%= item.item_id %></div>
+	<%= item.item.name %>
+    <%= number_to_currency item.price, unit: "Rs. " %>
+    <%= number_field_tag :quantity, item.quantity, min: 1, remote: true%>
+    <p class = "total_quan"><%= item.quantity %></p>
+	<%= form_for item, method: :delete do |f| %>
+		<%= f.submit "Remove" %>
+	<% end %>
+<% end %>
+
+<div>
+	<h3> Total ammount: </h3> <%= number_to_currency current_cart.sub_total, unit: "Rs. "%>
+</div>
