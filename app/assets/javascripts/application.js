@@ -17,7 +17,7 @@
 //= require_tree .
 
 $(document).ready(function(){
-	$("#quantity").change(function(){
+	$("#quantity").on('change',function(){
 		debugger;
 		var item_id = document.getElementsByClassName("item_id")[0].innerHTML;
 		var quantity = $(this).val();

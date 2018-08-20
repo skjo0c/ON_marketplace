@@ -9,7 +9,6 @@ class OrderItemsController < ApplicationController
 			item_id: params[:item_id],
 			quantity: params[:quantity]	
 			)
-		redirect_to cart_path
 	end
 
 	def destroy
