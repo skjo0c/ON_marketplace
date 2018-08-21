@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-	@orders = Order.all
+		@orders = Order.includes(:order_items)
 	end
 
 	private

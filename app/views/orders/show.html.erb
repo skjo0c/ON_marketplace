@@ -1,3 +1,25 @@
+<table>
+<tr>
+    <td>OrderId</td>
+    <td>ItemId</td>
+    <td> Ordered By</td>
+    <td> Shipping Address </td>
+    <td> Contact Number </td>
+    <td>Quantity</td>
+</tr>
 <% @orders.each do |order|%>
-	<%= order.orderitems.first_name%>
-<% end %>
+    <% order.order_items.each do |order_item| %>
+    <tr>
+        <td><%= order.id %></td>
+        <td><%= order_item.id %></td>
+        <td><%= order.first_name %> <%= order.last_name %> </td>
+        <td><%= order.address %></td>
+        <td><%= order.mobile %></td>
+        <td><%= order_item.quantity %></td>
+    </tr>
+    <%end%>
+<%end%>
+
+</table>
+
+<%= link_to 'Home', root_path%>
