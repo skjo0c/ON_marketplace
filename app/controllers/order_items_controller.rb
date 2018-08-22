@@ -5,11 +5,13 @@ class OrderItemsController < ApplicationController
   	end
 
 	def create
+		byebug
 		current_cart.add_item(
 			item_id: params[:item_id],
 			quantity: params[:quantity]	
 			)
 	end
+
 
 	def destroy
 	    current_cart.remove_item(id: params[:id])
