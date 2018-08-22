@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand bname" href="/">OtakuNepal</a>
+    </div>
+
+    <% if user_signed_in? %>
+
+      <div class= "nav_links pull-right" style="margin-right: 5px; margin-top: 10px">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <%= current_user.username %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu profile_menu" aria-labelledby="dropdownMenu1">
+              <br>
+              <li><span class="prof_opt"><%= link_to 'View Rent Bids' %></span></li><br><br>
+              <li><span class="prof_opt"><%= link_to 'Edit Settings', edit_user_registration_path %></span></li><br><br>
+              <li><span class="prof_opt"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></span></li><br><br>
+            </ul> 
+          </div>
+      </div>
+
+    <% else %>
+
+      <span class="nav_links pull-right"><%= link_to 'Sign Up', new_user_registration_path %></span>
+      <span class="nav_links pull-right", style = "margin-right: 5px"><%= link_to 'Log In', new_user_session_path %></span>
+
+     <% end %>
+
+  </div>
+</nav>

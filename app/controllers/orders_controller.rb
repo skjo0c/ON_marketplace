@@ -20,6 +20,12 @@ class OrdersController < ApplicationController
 	def show
 		@orders = Order.includes(:order_items)
 	end
+	
+	def destroy
+		@order = Order.find(params[:id])
+		@order.destroy
+		redirect_to :controller => 'orders', :action => 'show'
+	end
 
 	private
 

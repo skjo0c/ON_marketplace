@@ -16,6 +16,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 #gem for photo upload
 gem 'carrierwave'
+gem "mini_magick"
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server

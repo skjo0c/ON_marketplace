@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 	resources :order_items, path: '/cart/order_items'
 	get '/cart/checkout', to: 'orders#new', as: :checkout
 	patch '/cart/checkout', to: 'orders#create'
-
+	
+	resources :orders
 	get '/ordered_items', to: 'orders#show', as: :vieworders
 
 	devise_for :admins
