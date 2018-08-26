@@ -1,22 +1,33 @@
 <% if current_admin %>
 	<h1> This is admin </h1>
 <% else %>
-	<% @items.each do |item| %>
-		<h1> <%= item.name %> </h1>
-		<h4> <%= item.price %> </h4>
-		<h4> <%= item.description %> </h4>
-		
-		<%= form_tag order_items_path do %>
-			<%= hidden_field_tag :item_id, item.id %>
-			<%= hidden_field_tag :quantity, 1, id: :"init_quantity"%>
-			<%= submit_tag "Add to Cart"%>
-		<% end %>
-	<% end %>
+	<div class="row items">
+	  <% @items.each_with_index do |item, j| %>
+	    <div class="col-xs-12 col-sm-6 col-md-4 indexitem">
+	      <div class="itempanel">
+	      
+	        <div class="itemimage">
+	          <%= image_tag item.image.url(:thumb), :class => "thumbnail" %>
+	        </div>
+	
+	        <div class="itembody">
+	            <h3><%= item.name %></h3>
+	            <h4>Price: <%= item.price %></h4>
+	            <%= form_tag order_items_path do %>
+	              <%= hidden_field_tag :item_id, item.id %>
+	              <%= hidden_field_tag :quantity, 1, id: :"init_quantity"%>
+	              <%= submit_tag "Add to Cart"%>
+	            <% end %>
+	        </div>
+	      </div>
+	    </div>
+	  <% end %>
+	
+	</div>
 <% end %>
 
-<% if user_signed_in? || admin_signed_in? %>
-	<div>
-	 <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-	 <%= link_to 'My Cart', cart_path %>
-	</div>  
+
+<% if admin_signed_in? %>
+	<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+	<%= link_to 'All Ordered Items', '/ordered_items' %>
 <% end %>

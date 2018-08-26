@@ -17,7 +17,7 @@
 
 	<div class="form-group">
 		<%= f.label :ShippingAddress, 'Shipping Address'%>
-		<%= f.text_field :shipping_address, value: current_user.address%>
+		<%= f.text_field :address, value: current_user.address%>
 	</div>
 
 	<%= f.submit 'Checkout'%>

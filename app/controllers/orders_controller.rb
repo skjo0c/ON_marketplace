@@ -18,7 +18,13 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-	@orders = Order.all
+		@orders = Order.includes(:order_items)
+	end
+	
+	def destroy
+		@order = Order.find(params[:id])
+		@order.destroy
+		redirect_to :controller => 'orders', :action => 'show'
 	end
 
 	private

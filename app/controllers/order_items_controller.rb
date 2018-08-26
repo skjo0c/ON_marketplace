@@ -11,6 +11,7 @@ class OrderItemsController < ApplicationController
 			)
 	end
 
+
 	def destroy
 	    current_cart.remove_item(id: params[:id])
 	    redirect_to cart_path

@@ -10,21 +10,28 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
+/* global $ */
 $(document).ready(function(){
 	$("#quantity").on('change',function(){
+		$(".update_cart").show();
+	});
+	
+	$(".update_cart").on('click', function(){
 		debugger;
 		var item_id = document.getElementsByClassName("item_id")[0].innerHTML;
-		var quantity = $(this).val();
+		var quantity = $("#quantity").val();
 		$.ajax({
 			type: "POST",
 			url: "/cart/order_items",
 		data: {quantity: quantity, item_id: item_id}
 		});
+		$(".update_cart").hide();
 	});
 });
+

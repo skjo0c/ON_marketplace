@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand bname" href="/">OtakuNepal</a>
+    </div>
+
+    <% if user_signed_in? %>
+      
+      <div class= "nav_links pull-right" style="margin-right: 5px; margin-top: 10px">
+        <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+        <%= link_to 'My Cart', cart_path %>
+      </div>
+
+    <% else %>
+
+      <span class="nav_links pull-right"><%= link_to 'Sign Up', new_user_registration_path %></span>
+      <span class="nav_links pull-right", style = "margin-right: 5px"><%= link_to 'Log In', new_user_session_path %></span>
+
+     <% end %>
+
+  </div>
+</nav>
