@@ -1,57 +1,59 @@
-<div class = "row signup">
-  <div class = "col-md-7 hidden-xs text-center">
-    <div class = "banner-image">
-     
+<body class="signup_body">
+  <div class = "row signup">
+    <div class = "col-md-8 hidden-xs text-center">
+      <div class = "banner-image">
+       
+      </div>
     </div>
-  </div>
 
-  <div class = "col-md-2 col-xs-12 text-center signup-form">
-  
-    <div class = "text-signup">  
-      <h2>Sign up</h2>
-    </div><br/>
+    <div class = "col-md-2 text-center signup-form">
     
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+      <div class = "text-signup">  
+        <h2>Sign up</h2>
+      </div><br/>
     
-    <div class="form-inputs">
-      <div class="field">
-        <%= f.text_field :firstname, class: 'input-from', autofocus: true, autocomplete: "off", placeholder: "First Name" %>
-      </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
       
-      <div class="field">
-        <%= f.text_field :lastname, class: 'input-from', autofocus: false, autocomplete: "off", placeholder: "Last Name" %>
-      </div>
+      <div class="form-inputs">
+        <div class="field">
+          <%= f.text_field :firstname, class: 'input-from', autofocus: true, autocomplete: "off", placeholder: "First Name" %>
+        </div>
+        
+        <div class="field">
+          <%= f.text_field :lastname, class: 'input-from', autofocus: false, autocomplete: "off", placeholder: "Last Name" %>
+        </div>
+        
+        <div class="field">
+          <%= f.email_field :email, class: 'input-from', autofocus: false, autocomplete: "off", placeholder: "example@mail.com" %>
+        </div>
+        
+        <div class="field">
+          <%= f.text_field :mobile, class: 'input-from', autofocus: false, autocomplete: "off", type: "number", placeholder: "98xxxxxxxx" %>
+        </div>
+        
+        <div class="field">
+          <%= f.text_field :address, class: 'input-from', autofocus: false, autocomplete: "off", placeholder: "Address" %>
+        </div>
+        
+        <div class="field">
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, class: 'input-from', autocomplete: "off", placeholder: "Password" %>
+        </div>
       
-      <div class="field">
-        <%= f.email_field :email, class: 'input-from', autofocus: false, autocomplete: "off", placeholder: "example@mail.com" %>
-      </div>
+        <div class="field">
+          <%= f.password_field :password_confirmation, class: 'input-from', autocomplete: "off", placeholder: "Retype Password" %>
+        </div>
       
-      <div class="field">
-        <%= f.text_field :mobile, class: 'input-from', autofocus: false, autocomplete: "off", type: "number", placeholder: "98xxxxxxxx" %>
-      </div>
+        <div class="actions">
+          <%= f.submit "Sign up", class: 'signup-button' %>
+        </div>
+      <% end %>
       
-      <div class="field">
-        <%= f.text_field :address, class: 'input-from', autofocus: false, autocomplete: "off", placeholder: "Address" %>
+      <%= render "users/shared/links" %>
       </div>
-      
-      <div class="field">
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, class: 'input-from', autocomplete: "off", placeholder: "Password" %>
-      </div>
-    
-      <div class="field">
-        <%= f.password_field :password_confirmation, class: 'input-from', autocomplete: "off", placeholder: "Retype Password" %>
-      </div>
-    
-      <div class="actions">
-        <%= f.submit "Sign up", class: 'signup-button' %>
-      </div>
-    <% end %>
-    
-    <%= render "users/shared/links" %>
     </div>
   </div>
-</div>
+</body>
