@@ -1,3 +1,8 @@
+html{
+	height: -webkit-fill-available;
+}
+
+
 .bname{
 	font-family: 'Zilla Slab Highlight', cursive;
 }
@@ -5,6 +10,11 @@
 .indexitem{
     height: 180px;
     width: 250px;
+}
+
+.items{
+	margin-right: 0px;
+	margin-left: 0px;
 }
 
 .itempanel{
@@ -52,11 +62,13 @@
 }
 
 .signin-form{
+    margin-top: 10%;
 	background: #eae8e8;
 	background-color: #ffffff;
 	width: 350px;
-	height: 400px;
+	height: 300px;
 	border: 1px solid #efefef;
+	border-radius: 3px;
 }
 
 .signup-image{
@@ -73,11 +85,32 @@
 	margin-right: 35px;
 }
 
+.edit_profile{
+	border: 1px solid #efefef;
+	text-align: center;
+	width: max-content;
+}
+
+.link_afterlogin{
+	margin-right: 5px;
+	margin-top: 10px
+}
+
+.link_logout{
+	margin-left: 15px;
+}
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .signup {
         margin-left: 5px;
     }
+    
+    .login {
+    	margin-top: 0px;
+        margin-left: 5px;
+    }
+    
     .link_signup{
     	margin-top: -35px;
     	margin-right: 0px;
@@ -85,6 +118,18 @@
     .link_signin{
     	margin-top: -35px;
     	margin-right: 65px;
+    }
+    
+    .edit_profile{
+    	margin-left: 8px;
+    }
+    
+    .navbar{
+    	width: 103%;
+    }
+    
+    .link_afterlogin{
+    	margin-top: -35px;
     }
 }
 
