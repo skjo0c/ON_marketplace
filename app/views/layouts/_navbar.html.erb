@@ -11,6 +11,14 @@
         <%= link_to 'Edit Profile', edit_user_registration_path, class: 'link_logout' %>
         <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'link_logout' %>
       </div>
+      
+    <% elsif admin_signed_in? %>
+      
+      <div class= "nav_links pull-right link_afterlogin">
+        <%= link_to 'Create Item', '/items/new', class: 'create_item_link' %>
+        <%= link_to 'Ordered Items', '/ordered_items', class: 'show_ordereditem_link' %>
+        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'link_logout' %>
+      </div>
 
     <% else %>
 
