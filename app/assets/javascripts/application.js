@@ -17,7 +17,7 @@
 //= require turbolinks
 //= require_tree .
 /* global $ */
-$(document).ready(function(){
+//$(document).ready(function(){
 	$("#quantity").on('change',function(){
 		$(".update_cart").show();
 	});
@@ -33,5 +33,5 @@ $(document).ready(function(){
 		});
 		$(".update_cart").hide();
 	});
-});
+//});
 
