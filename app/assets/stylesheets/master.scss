@@ -30,6 +30,8 @@ html{
 .thumbnail{
     height: 200px;
     width: 240px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .update_cart{
@@ -194,6 +196,7 @@ html{
 //index items
 .carousel-control     		 { width:  4%; }
 .carousel-control.left,.carousel-control.right {margin-left:15px;}
+.multi-item-carousel { padding-left: 20px; }
 @media (max-width: 767px) {
 	.carousel-inner .active.left { left: -100%; }
 	.carousel-inner .next        { left:  100%; }
