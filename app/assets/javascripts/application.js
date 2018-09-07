@@ -18,9 +18,18 @@
 //= require_tree .
 /* global $ */
 $(document).ready(function(){
-	$("#quantity").on('change',function(){
-		$(".update_cart").show();
+	
+	$(function() {
+	  setInterval(function(){
+	    $('.alert').slideUp(500);
+	  }, 1000);
 	});
+
+	function showUpdateBtn(){
+		$(".update_cart").show();
+	}
+	$("#quantity").on("change", showUpdateBtn)
+	
 	
 	$(".update_cart").on('click', function(){
 		debugger;
@@ -53,5 +62,7 @@ $(document).ready(function(){
 	  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
 	  }
 	});
+
+
 });
 

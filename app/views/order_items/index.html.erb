@@ -1,18 +1,50 @@
-<%= link_to 'Home', root_path %>
-
-<% @items.each do |item| %>
-	<div class = "item_id"><%= item.item_id %></div>
-	<%= item.item.name %>
-    <%= number_to_currency item.price, unit: "Rs. " %>
-    <%= number_field_tag :quantity, item.quantity, min: 1, remote: true%>
-    <p class = "total_quan"><%= item.quantity %></p>
-	<%= form_for item, method: :delete do |f| %>
-		<%= f.submit "Remove" %>
-	<% end %>
-	<button class = "update_cart">Update</button>
-<% end %>
-
 <div>
-	<h3> Total ammount: </h3> <%= number_to_currency current_cart.sub_total, unit: "Rs. "%>
+	<%= link_to 'Home', root_path %>
 </div>
-<%= link_to 'Checkout', checkout_path%>
+
+<div class = 'col-md-8 col-md-offset-2'>
+	<table class = 'cart_table'>
+
+		<tr>
+			<td class = 'cart_table td'> Item ID </td>
+			<td class = 'cart_table td'> Item Name </td>
+			<td class = 'cart_table td'> Total Item Price </td>
+			<td class = 'cart_table td'> Quantity </td>
+			<td class = 'cart_table td'> Remove Items </td>
+			<td class = 'cart_table td'> Update </td>
+		</tr>
+
+		<tr>
+			<% @items.each do |item| %>
+				<td class = 'cart_table td'>
+					<div class = "item_id"><%= item.item_id %></div>
+				</td>
+				<td class = 'cart_table td'>
+					<%= item.item.name %>
+				</td>
+				<td class = 'cart_table td'>
+			    	<%= number_to_currency item.price, unit: "Rs. " %>
+			    </td>
+			    <td class = 'cart_table td'>
+			    	<%= number_field_tag :quantity, item.quantity, min: 1, remote: true%>
+			    </td>
+			    <td class = 'cart_table td'>
+					<%= form_for item, method: :delete do |f| %>
+						<%= f.submit "Remove", class: 'btn btn-danger' %>
+					<% end %>
+				</td>
+				<td class = 'cart_table td'>
+					<button class = "btn btn-warning update_cart">Update</button>
+				</td>
+			<% end %>
+		</tr>
+	</table>
+
+	<div>
+		<h3> Total ammount: <%= number_to_currency current_cart.sub_total, unit: "Rs. "%></h3>
+	</div>
+
+	<%= button_to 'Checkout', checkout_path, class: 'checkout_btn', :method => :get%>
+
+</div>
+

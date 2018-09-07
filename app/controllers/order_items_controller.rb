@@ -7,7 +7,7 @@ class OrderItemsController < ApplicationController
 	def create
 		current_cart.add_item(
 			item_id: params[:item_id],
-			quantity: params[:quantity]	
+			quantity: params[:quantity]
 			)
 	end
 
