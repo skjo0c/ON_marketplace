@@ -14,6 +14,8 @@ gem 'simple_form'
 #installing bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+#for pagination
+gem 'will_paginate', '~> 3.1.0'
 #gem for photo upload
 gem 'carrierwave'
 gem "mini_magick"

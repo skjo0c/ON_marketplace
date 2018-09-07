@@ -1,33 +1,69 @@
 <% if current_admin %>
-	<h1> This is admin </h1>
+  <h1> This is admin </h1>
 <% else %>
-	<div class="row items">
-	  <% @items.each_with_index do |item, j| %>
-	    <div class="col-xs-12 col-sm-6 col-md-4 indexitem">
-	      <div class="itempanel">
+	<div class="container">
+	  <div class="row">
+	    <div class="col-md-12">
+	      <div class="carousel slide multi-item-carousel" id="theCarousel">
+	        <div class="carousel-inner">
+	        
+	        	<% @items.each_with_index do |item, index| %>
+		          <div class="item<% if index == 0%> active <% end %>">
+		          	<div class="col-xs-4" style="vertical-align: middle; text-align: center;">
+		          		
+		          		
+				              <%= image_tag item.image.url(:thumb), :class => "thumbnail" %>
+				      
+				            <div class="itembody">
+				                <h3><%= item.name %></h3>
+				                <h4>Price: <%= item.price %></h4>
+				                <%= form_tag order_items_path do %>
+				                  <%= hidden_field_tag :item_id, item.id %>
+				                  <%= hidden_field_tag :quantity, 1, id: :"init_quantity"%>
+				                  <%= submit_tag "Add to Cart"%>
+				                <% end %>
+				            </div>
+				    	
+		          		
+		          	</div>
+		          </div>
+	        	<% end %>
+	       
+	      </div>
+	       <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+	        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+	    </div>
+	  </div>
+	</div>
+  </div>
+  
+  <hr/>
+  
+  <div class = "col-md-8 col-sm-12 col-md-offset-2">
+	  <div class="row items">
+	    <% @items.each_with_index do |item| %>
+	      <div class="col-xs-12 col-sm-6 col-md-3">
+	        <div class="panel panel-default itempanel">
+	          <div class="panel-body">
+	            <div class="itemimage">
+	              <%= image_tag item.image.url(:thumb), :class => "thumbnail" %>
+	            </div>
 	      
-	        <div class="itemimage">
-	          <%= image_tag item.image.url(:thumb), :class => "thumbnail" %>
-	        </div>
-	
-	        <div class="itembody">
-	            <h3><%= item.name %></h3>
-	            <h4>Price: <%= item.price %></h4>
-	            <%= form_tag order_items_path do %>
-	              <%= hidden_field_tag :item_id, item.id %>
-	              <%= hidden_field_tag :quantity, 1, id: :"init_quantity"%>
-	              <%= submit_tag "Add to Cart"%>
-	            <% end %>
+	            <div class="itembody">
+	                <h3><%= item.name %></h3>
+	                <h4>Price: <%= item.price %></h4>
+	                <%= form_tag order_items_path do %>
+	                  <%= hidden_field_tag :item_id, item.id %>
+	                  <%= hidden_field_tag :quantity, 1, id: :"init_quantity"%>
+	                  <%= submit_tag "Add to Cart"%>
+	                <% end %>
+	            </div>
+	          </div>
 	        </div>
 	      </div>
-	    </div>
-	  <% end %>
-	
+	    <% end %>
+	  </div>
+	 
 	</div>
-<% end %>
-
-
-<% if admin_signed_in? %>
-	<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-	<%= link_to 'All Ordered Items', '/ordered_items' %>
+	
 <% end %>

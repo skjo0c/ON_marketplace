@@ -1,3 +1,8 @@
+html{
+	height: -webkit-fill-available;
+}
+
+
 .bname{
 	font-family: 'Zilla Slab Highlight', cursive;
 }
@@ -7,8 +12,13 @@
     width: 250px;
 }
 
+.items{
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
 .itempanel{
-    width: 339px;
+    width: 275px;
     height: 441px;
 }
 
@@ -20,6 +30,8 @@
 .thumbnail{
     height: 200px;
     width: 240px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .update_cart{
@@ -52,11 +64,13 @@
 }
 
 .signin-form{
+    margin-top: 10%;
 	background: #eae8e8;
 	background-color: #ffffff;
 	width: 350px;
-	height: 400px;
+	height: 300px;
 	border: 1px solid #efefef;
+	border-radius: 3px;
 }
 
 .signup-image{
@@ -73,11 +87,36 @@
 	margin-right: 35px;
 }
 
+.edit_profile{
+	border: 1px solid #efefef;
+	text-align: center;
+	width: max-content;
+}
+
+.link_afterlogin{
+	margin-right: 5px;
+	margin-top: 10px
+}
+
+.link_logout{
+	margin-left: 15px;
+}
+
+.show_ordereditem_link{
+	margin-left: 15px;
+}
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .signup {
         margin-left: 5px;
     }
+    
+    .login {
+    	margin-top: 0px;
+        margin-left: 5px;
+    }
+    
     .link_signup{
     	margin-top: -35px;
     	margin-right: 0px;
@@ -85,6 +124,18 @@
     .link_signin{
     	margin-top: -35px;
     	margin-right: 65px;
+    }
+    
+    .edit_profile{
+    	margin-left: 8px;
+    }
+    
+    .navbar{
+    	width: 103%;
+    }
+    
+    .link_afterlogin{
+    	margin-top: -35px;
     }
 }
 
@@ -139,4 +190,32 @@
     width: 268px;
 	height:31px;
 	margin:4% 0 0 0;
+}
+
+
+//index items
+.carousel-control     		 { width:  4%; }
+.carousel-control.left,.carousel-control.right {margin-left:15px;}
+.multi-item-carousel { padding-left: 20px; }
+@media (max-width: 767px) {
+	.carousel-inner .active.left { left: -100%; }
+	.carousel-inner .next        { left:  100%; }
+	.carousel-inner .prev		 { left: -100%; }
+	.active > div { display:none; }
+	.active > div:first-child { display:block; }
+	.multi-item-carousel { padding-left: 40px; }
+	.carousel .itembody { margin-left: 100%; }
+}
+@media (min-width: 767px) and (max-width: 992px ) {
+	.carousel-inner .active.left { left: -50%; }
+	.carousel-inner .next        { left:  50%; }
+	.carousel-inner .prev		 { left: -50%; }
+	.active > div { display:none; }
+	.active > div:first-child { display:block; }
+	.active > div:first-child + div { display:block; }
+}
+@media (min-width: 992px ) {
+	.carousel-inner .active.left { left: -16.7%; }
+	.carousel-inner .next        { left:  16.7%; }
+	.carousel-inner .prev		 { left: -16.7%; }	
 }
