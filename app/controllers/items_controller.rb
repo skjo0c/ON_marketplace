@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
 	before_action :authenticate_admin!, only: [:create, :delete]
 
 	def index
-		@items = Item.all
+		@newitems = Item.where('created_at > ?', 17.days.ago)
+		@items = Item.order("created_at DESC").paginate(:page => params[:page], :per_page => 1)
 	end
 
 	def new
@@ -18,6 +19,10 @@ class ItemsController < ApplicationController
 		else
 			render :new, status: :unprocessable_entity
 		end
+	end
+
+	def show
+		@item = Item.find(params[:id])
 	end
 
 	private

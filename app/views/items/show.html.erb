@@ -1,0 +1,69 @@
+<div class="container">
+	<div class="row justify-content-md-center">
+		<div class = 'col col-md-8'>
+			<div class="itemimage">
+				<%= image_tag @item.image.url(:thumb), :class => "thumbnail" %>
+			</div>
+		</div>
+
+		<div class = 'col col-md-4'>
+			<h1 class="itemname"><%= @item.name %></h1>
+			<h2 class="itemprice">NRs. <%= @item.price %></h2>
+			<h5 class="itemdescription"><%= @item.description %></h5>
+			<%= form_tag order_items_path do %>
+	          <%= hidden_field_tag :item_id, @item.id %>
+	          <%= hidden_field_tag :quantity, 1, id: :"init_quantity"%>
+	          <%= submit_tag "Add to Cart"%>
+	        <% end %>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class = 'col col-md-8'>
+			<h1> Reviews </h1>
+
+			<div class="all_reviews">				
+				<% if @item.reviews.each do |review| %>
+
+					<div class="reviews">
+						<div class="reviewer_image">
+							<%= image_tag ("user.png") %>
+						</div>
+
+						<div class="review_box">			
+							<div class="reviewer">
+								<div class="reviewer_fullname">
+									<%= review.user.firstname %> <%= review.user.lastname %>
+								</div>
+									<p class="review_time">
+										on <%= review.created_at.strftime("%d %b, %Y")%>
+									</p>
+								<div class="full_review">
+									<%= review.review %>
+								</div>						
+							</div>				
+						</div>
+					</div>
+					<br/>
+				<% end.empty? %>
+					<p> There are currently no reviews right now. <br/> Please give us your feedback on this product. </p>
+				<% end %>
+			</div>
+			<br/>
+
+			<% if user_signed_in? %>
+				<div class="review_form">
+					<%= form_for Review.new, url: item_reviews_path(@item), method: :post do |f| %>
+						
+					    <%= f.text_area :review, class: 'review_form_textarea', placeholder: "Write you review here..." %>
+					    <%= hidden_field_tag :item_id, @item.id %>
+					    <%= hidden_field_tag :user_id, @current_user %>
+					    <%= f.submit 'Submit' %>
+				  	<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

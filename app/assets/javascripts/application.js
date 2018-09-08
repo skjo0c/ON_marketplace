@@ -32,7 +32,6 @@ $(document).ready(function(){
 	
 	
 	$(".update_cart").on('click', function(){
-		debugger;
 		var item_id = document.getElementsByClassName("item_id")[0].innerHTML;
 		var quantity = $("#quantity").val();
 		$.ajax({
@@ -63,6 +62,10 @@ $(document).ready(function(){
 	  }
 	});
 
+	function hideMultiItem(){
+		$(".multiitem").hide();
+	}
+	$(".pagination").on("click", hideMultiItem)
 
 });
 

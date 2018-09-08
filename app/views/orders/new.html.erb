@@ -1,25 +1,28 @@
-<%= form_for @order, url: checkout_path do |f|%>
+<div class = 'col-md-offset-4 checkoutform'>
+	<%= form_for @order, url: checkout_path do |f|%>
 
-	<div class="form-group">
-		<%= f.label :FirstName, 'First Name'%>
-		<%= f.text_field :first_name, value: current_user.firstname%>
-	</div>
+		<div class="form-group">
+			<%= f.label :FirstName, 'First Name', class: 'checkoutform_label'%>
+			<%= f.text_field :first_name, value: current_user.firstname, class: 'checkoutform_field'%>
+		</div>
 
-	<div class="form-group">
-		<%= f.label :LastName, 'Last Name'%>
-		<%= f.text_field :last_name, value: current_user.lastname%>
-	</div>
+		<div class="form-group">
+			<%= f.label :LastName, 'Last Name', class: 'checkoutform_label'%>
+			<%= f.text_field :last_name, value: current_user.lastname, class: 'checkoutform_field'%>
+		</div>
 
-	<div class="form-group">
-		<%= f.label :Mobile%>
-		<%= f.text_field :mobile, value: current_user.mobile%>
-	</div>
+		<div class="form-group">
+			<%= f.label :Mobile, class: 'checkoutform_label'%>
+			<%= f.text_field :mobile, value: current_user.mobile, class: 'checkoutform_field'%>
+		</div>
 
-	<div class="form-group">
-		<%= f.label :ShippingAddress, 'Shipping Address'%>
-		<%= f.text_field :address, value: current_user.address%>
-	</div>
+		<div class="form-group">
+			<%= f.label :ShippingAddress, 'Shipping Address', class: 'checkoutform_label'%>
+			<%= f.text_field :address, value: current_user.address, class: 'checkoutform_field'%>
+		</div>
 
-	<%= f.submit 'Checkout'%>
+		<%= f.submit 'Checkout', class: 'checkoutform_btn'%>
 
-<% end %>
+	<% end %>
+
+</div>

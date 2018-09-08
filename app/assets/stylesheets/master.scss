@@ -19,7 +19,7 @@ html{
 
 .itempanel{
     width: 275px;
-    height: 441px;
+    //height: 441px;
 }
 
 .itemimage{
@@ -242,4 +242,70 @@ html{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+.checkoutform{
+	border: 1px solid #efefef;
+	text-align: left;
+	width: max-content;
+	padding: 9px 8px 7px;
+	border-radius: 3px;
+}
+
+.checkoutform_label{
+	text-align: left;
+	margin-right: 50px;
+}
+
+.checkoutform_field{
+	margin-left: 50px;
+	float: right;
+	width: 300px;
+}
+
+.checkoutform_btn{
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 268px;
+}
+
+.itemname, .itemprice{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.review_form_textarea{
+	width: -webkit-fill-available;
+    height: 100px;
+    margin-right: 100px;
+}
+
+.reviews{
+	display: flex;
+}
+
+.review_box{
+	border: 1px solid #DCDCDC;
+	padding: 15px;
+}
+
+.reviewer_image{
+	padding-top: 15px;
+	margin-right: 20px;
+}
+
+.reviewer_fullname{
+	font-weight: bold;
+}
+
+.review_time{
+	color: #555;
 }

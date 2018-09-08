@@ -3,11 +3,11 @@
 <% else %>
 	<div class="container">
 	  <div class="row">
-	    <div class="col-md-12">
+	    <div class="col-md-12 multiitem">
 	      <div class="carousel slide multi-item-carousel" id="theCarousel">
 	        <div class="carousel-inner">
 	        
-	        	<% @items.each_with_index do |item, index| %>
+	        	<% @newitems.each_with_index do |item, index| %>
 		          <div class="item<% if index == 0%> active <% end %>">
 		          	<div class="col-xs-4" style="vertical-align: middle; text-align: center;">
 		          		
@@ -50,7 +50,7 @@
 	            </div>
 	      
 	            <div class="itembody">
-	                <h3><%= item.name %></h3>
+	                <h3><%= link_to item.name, item_path(item.id)%></h3>
 	                <h4>Price: <%= item.price %></h4>
 	                <%= form_tag order_items_path do %>
 	                  <%= hidden_field_tag :item_id, item.id %>
@@ -62,8 +62,14 @@
 	        </div>
 	      </div>
 	    <% end %>
+
+	    <div class = "text-center pagination">
+		  <%= will_paginate @items %>
+		</div>
 	  </div>
 	 
 	</div>
+
+	
 	
 <% end %>
