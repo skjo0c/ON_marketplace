@@ -1,8 +1,13 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand bname" href="/">OtakuNepal</a>
     </div>
+
+    <%= form_tag items_path, method: :get, class: 'searchBar' do%>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
 
     <% if user_signed_in? %>
       

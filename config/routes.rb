@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 	resources :items do
 		resources :reviews
 	end
-
 	# post '/add_to_cart/:item_id' => 'carts#add_to_cart', :as => 'add_to_cart'
 	
 	get '/cart', to: 'order_items#index'

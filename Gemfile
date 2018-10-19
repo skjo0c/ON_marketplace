@@ -13,6 +13,8 @@ gem 'rails', '~> 5.1.4'
 gem 'simple_form'
 #installing bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
+#installing rating system
+gem 'ratyrate', :github => 'wazery/ratyrate'
 gem 'jquery-rails'
 #for pagination
 gem 'will_paginate', '~> 3.1.0'
@@ -21,6 +23,8 @@ gem 'carrierwave'
 gem "mini_magick"
 # Use postgres as the database for Active Record
 gem 'pg'
+#using tire for searchengine
+gem 'tire'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

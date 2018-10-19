@@ -15,6 +15,7 @@
 	          <%= hidden_field_tag :quantity, 1, id: :"init_quantity"%>
 	          <%= submit_tag "Add to Cart"%>
 	        <% end %>
+	        Rating: <%= rating_for @item, "item", stars: 5 %>
 		</div>
 	</div>
 </div>
